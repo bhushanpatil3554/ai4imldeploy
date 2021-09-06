@@ -1,0 +1,108 @@
+{% block head %}
+
+<title>Calculator</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+{% endblock %}
+
+{% block body %}
+<div class="content">
+    <h1 style="text-align: center">AI4I 2020 Predictive Maintenance Dataset Analysis</h1>
+
+   <table><tr>
+     <td valign=top>
+	<p>
+	<span class="heading"><b>AI4I 2020 Predictive Maintenance Dataset Data Set</b></span>
+	<br><span class="normal"><i><font size=4 >Download</font></i>:
+        <a href="https://archive.ics.uci.edu/ml/machine-learning-databases/00601/">
+            <font
+style="BACKGROUND-COLOR: #FFFFAA" size=4>Data Folder</font></a>,
+        <a href="/description"><font
+style="BACKGROUND-COLOR: #FFFFAA" size=4>Data Set Description</font></a></span></p>
+
+	<p class="normal"><b>Abstract</b>: The AI4I 2020 Predictive Maintenance Dataset is a synthetic dataset that reflects real predictive maintenance data encountered in industry.</p>
+     </td>
+     <td> </td>
+   </tr></table>
+
+<table border=1 cellpadding=6>
+	<tr>
+		<td bgcolor="#DDEEFF"><p class="normal"><b>Data Set Characteristics:&nbsp;&nbsp;</b></p></td>
+		<td><p class="normal">Multivariate, Time-Series</p></td>
+		<td bgcolor="#DDEEFF"><p class="normal"><b>Number of Instances:</b></p></td>
+		<td><p class="normal">10000</p></td>
+		<td bgcolor="#DDEEFF"><p class="normal"><b>Area:</b></p></td>
+		<td><p class="normal">Computer</p></td>
+	</tr>
+
+	<tr>
+		<td bgcolor="#DDEEFF"><p class="normal"><b>Attribute Characteristics:</b></p></td>
+		<td><p class="normal">Real</p></td>
+		<td bgcolor="#DDEEFF"><p class="normal"><b>Number of Attributes:</b></p></td>
+		<td><p class="normal">14</p></td>
+		<td bgcolor="#DDEEFF"><p class="normal"><b>Date Donated</b></p></td>
+		<td><p class="normal">2020-08-30</p></td>
+	</tr>
+	<tr>
+		<td bgcolor="#DDEEFF"><p class="normal"><b>Associated Tasks:</b></p></td>
+		<td><p class="normal">Classification, Regression, Causal-Discovery</p></td>
+		<td bgcolor="#DDEEFF"><p class="normal"><b>Missing Values?</b></p></td>
+		<td><p class="normal">N/A</p></td>
+		<td bgcolor="#DDEEFF"><p class="normal"><b>Number of Web Hits:</b></p></td>
+		<td><p class="normal">26793</p></td>
+	</tr>
+	<!--
+	<tr>
+
+		<td bgcolor="#DDEEFF"><p class="normal"><b>Highest Percentage Achieved:&nbsp;&nbsp;</b></p></td>
+		<td><p class="normal">N/A</p></td>
+	</tr>
+	-->
+</table>
+
+
+<br />
+
+    <h3>Data Set Information:</h3>
+    <p>Since real predictive maintenance datasets are generally difficult to obtain and in particular difficult to publish, we present and provide a synthetic dataset that reflects real predictive maintenance encountered in industry to the best of our knowledge.
+    </p>
+    <div class="form">
+      <!--  <form action = "http://localhost:5000/profiling" method = "POST"
+         enctype = "multipart/form-data">
+         <input type = "file" name = "file" />
+         <input type = "submit"/>
+        </form>-->
+        <form action="/profiling" method="get" >
+
+          <button type="submit">Generate Profile Report on Data</button>
+        </form>
+
+	</div>
+		<div>
+		<H2> Predict Air Temprature based on below Parameter</H2></br>
+		<form action="/prediction" method="POST" enctype="multipart/form-data">
+
+			<label for="ptemp" >Process Temprature [k]  : </label>
+  			<input type="number" id="ptemp" placeholder="308.0" name="ptemp"><br>
+			<label for="rspeed" >Rotational speed [rpm] : </label>
+  			<input type="number" id="rspeed" placeholder="1551" name="rspeed"><br>
+			<label for="torque" >Torque [Nm]            : </label>
+  			<input type="number" id="torque" placeholder="43.3" name="torque"><br>
+			<label for="toolwear" >Tool wear [min]      : </label>
+  			<input type="number" id="toolwear" placeholder="10" name="toolwear"><br>
+			<label for="twf" >TWF                       : </label>
+  			<input type="number" placeholder="0" id="twf" name="twf"><br>
+			<label for="hdf" >HDF                       : </label>
+  			<input type="number" placeholder="0" id="hdf" name="hdf"><br>
+			<label for="twf" >PWF                       : </label>
+  			<input type="number" placeholder="1" id="pwf" name="pwf"><br>
+			<label for="osf" >OSF                       : </label>
+  			<input type="number" placeholder="0" id="osf" name="osf"><br>
+			<label for="rnf">RNF                       : </label>
+  			<input type="number" placeholder="1" id="rnf" name="rnf"><br>
+</br>
+          <button type="submit">Get Prediction</button>
+        </form>
+		</div>
+
+</div>
+{% endblock %}

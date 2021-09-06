@@ -7,7 +7,7 @@ from MaintenancePrediction import MaintenancePrediction
 from logger_class import Logger
 import Constants
 
-app = Flask(__name__, static_url_path='/static')  # initialising the flask app with the name 'app'
+app = Flask(__name__)  # initialising the flask app with the name 'app'
 log = Logger("IndexPage")
 mai = MaintenancePrediction()
 
